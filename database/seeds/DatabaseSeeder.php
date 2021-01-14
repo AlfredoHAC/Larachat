@@ -12,9 +12,12 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UserSeeder::class);
-        DB::table('users')->insert([
-            'name' => Str::random(10),
-            'email' => Str::random(10).'@email.com',
-        ]);
+        DB::table('users')->insert([[
+            'name' => 'Jonh Doe',
+            'email' => 'johndoe@email.com',
+        ], [
+            'name' => 'Jane Doe',
+            'email' => 'janedoe@email.com',
+        ]]);
     }
 }
