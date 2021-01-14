@@ -10,17 +10,9 @@
 
 <body>
     <main>
+        <header><h1>Larachat</h1></header>
         <section id='usuarios'>
-            <h3>Usuários Disponíveis</h3>
-            <hr />
-            <div>
-                <ul>
-                    @foreach($users as $user)
-                    <li>{{ $user->name }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            <hr>
+            <h4><a href='/users'>Ver Usuários Disponíveis</a></h4>
         </section>
         <section id='chats'>
             <h3>Chats - <a href="/">Novo Chat</a></h3>
