@@ -13,23 +13,44 @@
         <header>
             <h1>Larachat</h1>
         </header>
-        <section id='usuarios'>
-            <h4><a href='/users'>Ver Usuários Disponíveis</a></h4>
+        <section id='chat'>
+            <span><strong>Usuário 1:</strong> {{ $chat->users[0]->name }}</span>
+            <span><strong>Usuário 2:</strong> {{ $chat->users[1]->name }}</span>
         </section>
-        <section id='chats'>
-            <h3>Chats - <a href="/">Novo Chat</a></h3>
+        <section id='messages'>
+            <hr>
             <div>
-                <ul>
-                    @foreach($chats as $chat)
-                    <li>
-                        <span><strong>Iniciado em:</strong> {{ $chat->started_at }}</span>
-                        <a href='/'>Abrir chat</a>
-                    </li>
-                    @endforeach
-                </ul>
+                @foreach($messages as $message)
+                <div>
+                    <span><strong>{{ $message->user->name }}:</strong></span>
+                    <div>{{ $message->content }}</div>
+                </div>
+                @endforeach
             </div>
             <hr>
-            <hr>
+            <div>
+                <form method="POST" action="/chats/{{ $chat->id }}">
+                    @csrf
+                    @method('PATCH')
+                    <div>
+                        <label for="selSender">Enviar como:</label>
+                        <select name="selSender" id="selSender">
+                            @foreach($users as $user)
+                            <option value={{ $user->id }}>{{ $user->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div>
+                        <label for="txtContent">Mensagem:</label><br />
+                        <textarea name="txtContent" id="txtContent" cols="64" rows="8"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit">Enviar Mensagem</button>
+                    </div>
+
+                </form>
+            </div>
+            <a href="/">Voltar</a>
         </section>
     </main>
 </body>

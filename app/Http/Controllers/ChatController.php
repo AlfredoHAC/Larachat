@@ -3,9 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Chat;
-use App\Message;
 use App\User;
-use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class ChatController extends Controller
@@ -49,11 +47,11 @@ class ChatController extends Controller
         $chat->users()->attach($usrSecondId);
 
         $chat->messages()->create([
-            'sender'  => $request->input('users_1'),
-            'content' => $request->input('txtContent'),
+            'sender'  => $usrFirstId,
+            'content' => $txtContent,
         ]);
         
-        return redirect()->action('HomeController@index');
+        return redirect()->action('ChatController@show',$chat->id);
     }
 
     /**
@@ -64,7 +62,13 @@ class ChatController extends Controller
      */
     public function show($id)
     {
-        //
+        $chat = Chat::find($id);
+        $users = $chat->users;
+        return view('chat.show')->with([
+            'chat' => $chat,
+            'messages' => $chat->messages,
+            'users' => $users,
+        ]);
     }
 
     /**
@@ -87,7 +91,16 @@ class ChatController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $sender = $request->input('selSender');
+        $content = $request->input('txtContent');
+        $chat = Chat::find($id);
+
+        $chat->messages()->create([
+            'sender' => $sender,
+            'content' => $content,
+        ]);
+
+        return redirect()->action('ChatController@show', $chat->id);
     }
 
     /**

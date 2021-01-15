@@ -27,7 +27,7 @@
                         <span><strong>Usuário 1:</strong> {{ $chat->users[0]->name }}</span>
                         <span><strong>Usuário 2:</strong> {{ $chat->users[1]->name }}</span>
 
-                        <a href='/'>Abrir chat</a>
+                        <a href='/chats/{{ $chat->id }}'>Abrir chat</a>
                     </li>
                     @endforeach
                 </ul>
