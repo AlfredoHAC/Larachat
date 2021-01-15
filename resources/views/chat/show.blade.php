@@ -17,21 +17,18 @@
             <h4><a href='/users'>Ver Usuários Disponíveis</a></h4>
         </section>
         <section id='chats'>
-            <h3>Chats - <a href="/chats/create">Novo Chat</a></h3>
-            <hr>
+            <h3>Chats - <a href="/">Novo Chat</a></h3>
             <div>
                 <ul>
                     @foreach($chats as $chat)
                     <li>
-                        <span><strong>Iniciado em:</strong> {{ $chat->created_at }}</span>
-                        <span><strong>Usuário 1:</strong> {{ $chat->users[0]->name }}</span>
-                        <span><strong>Usuário 2:</strong> {{ $chat->users[1]->name }}</span>
-
+                        <span><strong>Iniciado em:</strong> {{ $chat->started_at }}</span>
                         <a href='/'>Abrir chat</a>
                     </li>
                     @endforeach
                 </ul>
             </div>
+            <hr>
             <hr>
         </section>
     </main>
