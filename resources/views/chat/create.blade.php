@@ -44,6 +44,7 @@
                         <button type="submit">Enviar Mensagem</button>
                     </div>
                 </form>
+                <a href="/">Cancelar</a>
             </div>
         </section>
     </main>
