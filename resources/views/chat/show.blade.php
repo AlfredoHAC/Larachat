@@ -14,8 +14,8 @@
             <h1>Larachat</h1>
         </header>
         <section id='chat'>
-            <span><strong>Usuário 1:</strong> {{ $chat->users[0]->name }}</span>
-            <span><strong>Usuário 2:</strong> {{ $chat->users[1]->name }}</span>
+            <span><strong>Usuário 1:</strong> {{ $chat->users[0]->email }}</span>
+            <span><strong>Usuário 2:</strong> {{ $chat->users[1]->email }}</span>
         </section>
         <section id='messages'>
             <hr>

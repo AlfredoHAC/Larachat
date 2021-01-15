@@ -24,8 +24,8 @@
                     @foreach($chats as $chat)
                     <li>
                         <span><strong>Iniciado em:</strong> {{ $chat->created_at }}</span>
-                        <span><strong>Usuário 1:</strong> {{ $chat->users[0]->name }}</span>
-                        <span><strong>Usuário 2:</strong> {{ $chat->users[1]->name }}</span>
+                        <span><strong>Usuário 1:</strong> {{ $chat->users[0]->email }}</span>
+                        <span><strong>Usuário 2:</strong> {{ $chat->users[1]->email }}</span>
 
                         <a href='/chats/{{ $chat->id }}'>Abrir chat</a>
                     </li>
