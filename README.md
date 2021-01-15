@@ -21,7 +21,7 @@ Para inserir dados *default* no banco, é necessário usar o `db:seed`, para que
 $ php artisan db:seed
 ```
 
-Lembrando que o banco de dados utilizado foi o **PostgreSQL**, então é necessário fazer as modificações necessárias no arquivo `.env` e/ou `config/database.php`.
+Lembrando que o banco de dados utilizado foi o **PostgreSQL**, então pode ser necessário fazer as modificações apropriadas no arquivo `.env` e/ou no arquivo `config/database.php`.
 
 # Execução
 
